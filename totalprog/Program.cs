@@ -22,7 +22,7 @@
     return result;
     }
     
-    //Получить заполненный массив значениями типа string
+    //Получить заполненный исходный массив значениями типа string
     static string[] InitArray (int dimArray)
     {
 	string[] array = new string[dimArray];
@@ -36,25 +36,49 @@
 	return array;
     }
 
-    /*Распечатать массив на консоль
-    static void PrintArray (int[] array)
-    {
-	for (int i=0;i<array.Length;i++) Console.Write(array[i] + "  ");
-    }
-    
-    //Определить элемент массива
-    static int GetCount (int[] array)
+    //Выбрать элементы массива длина которых меньше или равна 3 символа
+    // и определить размерность нового массива 
+    static int ArrayElementCheck3S (string[] array)
     {
         int count=0;
+        string temp = string.Empty;
+
+        for (int i=0;i<array.Length;i++)
+        {
+            temp=array[i];
+            if(temp.Length<=3)
+            {
+                count++;
+            }
+        }
+	return count;
+    }
+
+    /*//Определить элемент массива
+    static string MyArray3S (string[] myarray, string[] array)
+    {
+        nt undefined=5;
+        string[] MyArray3S = new string[undefined];
+        string[] myarray = new string[];
 	    for (int i=0;i<array.Length;i++)
 	    {
 		    if(array[i]%2==0) count++;
 	    }
 	return count;
     }*/
+    
+    // Распечатать массив на консоль
+    static void PrintArray (string[] array)
+    {
+	for (int i=0;i<array.Length;i++) Console.WriteLine(array[i]);
+    }
+    
+
 
     Console.WriteLine("Формируем массив из строк");
     int dimArray=GetNumber("Введите размерность этого массива: ");
     string[] array=InitArray(dimArray);
-    /*PrintArray(array);
-    Console.WriteLine($"Количество четных чисел в массиве = {GetCount(array)}");*/
+    int myDimArray=ArrayElementCheck3S(array);
+    //string[] myArray=ArrayElementCheck3S(array);
+    //PrintArray(myArray);
+    Console.WriteLine(myDimArray);
