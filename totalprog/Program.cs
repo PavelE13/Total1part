@@ -51,24 +51,9 @@ static int ArrayElementCheck3S(string[] array)
     return count;
 }
 
-/*//Формирование новых элементов массива, длина которых меньше 
+//Формирование новых элементов массива, длина которых меньше 
 //или равна 3 символа
-static string[] MyArrayCreate3S(string[] array, int myDimArray)
-{
-    string[] MyArray3S = new string[myDimArray];
 
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i].Length <= 3)
-        {
-            for (int j = 0; j < MyArray3S.Length; j++)
-            {
-                MyArray3S[j] = array[i];
-            }
-        }
-    }
-    return MyArray3S;
-}*/
 static string[] MyArrayCreate3S(string[] array, int myDimArray)
 {
     string[] MyArray3S = new string[myDimArray];
@@ -79,23 +64,25 @@ static string[] MyArrayCreate3S(string[] array, int myDimArray)
         if (array[i].Length <= 3)
         {
             MyArray3S[mycount] = array[i];
-            Console.WriteLine(MyArray3S[mycount]);
             mycount++;
         }
     }
     return MyArray3S;
 }
 
-/*// Распечатать массив на консоль
-static void PrintArray(string[] array)
+// Распечатать массив на консоль
+static void PrintArray(string[] myArray)
 {
-    for (int i = 0; i < array.Length; i++) Console.WriteLine(array[i]);
-}*/
-
+    Console.WriteLine("Выводим новый массив с элементами <=3 символа");
+    for (int i = 0; i < myArray.Length; i++) Console.WriteLine($"{i} элемент:{myArray[i]}");
+    Console.WriteLine();
+}
 
 Console.WriteLine("Формируем массив из строк");
 int dimArray = GetNumber("Введите размерность этого массива: ");
 string[] array = InitArray(dimArray);
 int myDimArray = ArrayElementCheck3S(array);
 string[] myArray = MyArrayCreate3S(array, myDimArray);
-//PrintArray(myArray);
+PrintArray(myArray);
+Console.Write("Программа завершила работу. Нажмите любую кнопку для выхода...");
+Console.ReadKey();
