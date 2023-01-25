@@ -13,7 +13,7 @@
     int result;
     while (true)
     {
-        Console.WriteLine(message);
+        Console.Write(message);
         if (int.TryParse(Console.ReadLine(), out result) && result > 0)
             break;
         else
@@ -22,22 +22,21 @@
     return result;
     }
     
-    /*Получить заполненный масств рандомными значениями типа string
+    //Получить заполненный массив значениями типа string
     static string[] InitArray (int dimArray)
     {
 	string[] array = new string[dimArray];
 	
-    Console.WriteLine("Введите строковый массив.");
+    Console.WriteLine("Вводим строковый массив ниже");
 	for (int i=0;i<dimArray;i++)
 	{
         Console.Write($"{i} элемент:");
-        
-		array[i]=rnd.Next(100,1000);
+        array[i]=Console.ReadLine();
 	}
 	return array;
     }
 
-    //Распечатать массив на консоль
+    /*Распечатать массив на консоль
     static void PrintArray (int[] array)
     {
 	for (int i=0;i<array.Length;i++) Console.Write(array[i] + "  ");
@@ -56,6 +55,6 @@
 
     Console.WriteLine("Формируем массив из строк");
     int dimArray=GetNumber("Введите размерность этого массива: ");
-    /*string[] array=InitArray(dimArray);
-    PrintArray(array);
+    string[] array=InitArray(dimArray);
+    /*PrintArray(array);
     Console.WriteLine($"Количество четных чисел в массиве = {GetCount(array)}");*/
